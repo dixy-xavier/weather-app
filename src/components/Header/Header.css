@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.image {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.header {
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: var(--theme-color);
+  color: #fff;
+  padding: 15px 20px;
+  margin: 0 0 0 10px;
+  font-size: 23px;
+  word-spacing: 2px;
+}

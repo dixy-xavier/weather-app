@@ -3,4 +3,18 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --theme-color: #299928;
+  --border-color: #e0e0e0;
+  --overlayBg: rgba(0, 0, 0, 0.5);
 }
