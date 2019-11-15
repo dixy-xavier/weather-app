@@ -17,4 +17,5 @@ body {
   --theme-color: #299928;
   --border-color: #e0e0e0;
   --overlayBg: rgba(0, 0, 0, 0.5);
+  --activeTextColor: #fff;
 }

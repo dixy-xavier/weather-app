@@ -1,0 +1,12 @@
+.wrapper {
+  border: 1px var(--border-color) solid;
+}
+
+.button {
+  background-color: transparent;
+}
+
+.active {
+  color: var(--activeTextColor);
+  background-color: var(--theme-color);
+}
