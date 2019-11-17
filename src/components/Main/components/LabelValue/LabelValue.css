@@ -1,6 +1,13 @@
 .wrapper {
+
+}
+
+.labelWrapper {
   display: flex;
-  justify-content: space-between;
+}
+
+.labelWrapper svg {
+  font-size: 20px;
 }
 
 .label {
@@ -8,5 +15,5 @@
 }
 
 .value {
-
+  padding-top: 5px;
 }

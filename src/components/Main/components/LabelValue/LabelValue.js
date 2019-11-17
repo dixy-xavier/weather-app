@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './LabelValue.css';
 
-const LabelValue = ({ label, value }) => (
+const LabelValue = ({ label, value, icon }) => (
   <div className={styles.wrapper}>
-    <label className={styles.label}>{label}</label>
+    <div className={styles.labelWrapper}>
+      <label className={styles.label}>{label}</label>
+      {icon}
+    </div>
     <div className={styles.value}>{value}</div>
   </div>
 );

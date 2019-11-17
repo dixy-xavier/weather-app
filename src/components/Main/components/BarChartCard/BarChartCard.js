@@ -6,8 +6,7 @@ import styles from './BarChartCard.css';
 
 const CustomizedLabel = ({ x, y, fill, value, type }) => (
   <text x={x} y={y - 10} fontSize="14" fill={fill}>
-    {`${convertTemperature(value, type)} ${type === 'celsius' ? 'C' : 'F'}`}
-    <sup></sup>
+    {convertTemperature(value, type)}
   </text>
 );
 
