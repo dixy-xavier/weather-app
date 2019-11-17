@@ -1,7 +1,7 @@
-import { WiHumidity, WiStrongWind } from "react-icons/wi";
 import classNames from 'classnames';
 import moment from 'moment';
 import React from 'react';
+import { WiHumidity, WiStrongWind } from 'react-icons/wi';
 import { convertTemperature } from '../../Main.utils';
 import LabelValue from '../LabelValue/LabelValue';
 import styles from './Card.css';
@@ -23,6 +23,7 @@ const Card = ({ date, reports, onClick, isActive, activeScale }) => {
     }
     return data;
   }, { temperature: 0, humidity: 0, wind: 0 });
+
   return (
     <div className={classNames(styles.wrapper, { [styles.active]: isActive })} onClick={() => onClick(date)}>
       <div className={styles.labelWrapper}>
