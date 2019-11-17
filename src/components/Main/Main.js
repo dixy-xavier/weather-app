@@ -45,6 +45,9 @@ const Main = () => {
           <NoData message={error} />
         ) : (
           <Fragment>
+            <h2>
+              Weather Forecast of {location.name}, {location.country}
+            </h2>
             <RadioButtons
               list={scales}
               classes={{ wrapper: styles.radioWrapper }}
