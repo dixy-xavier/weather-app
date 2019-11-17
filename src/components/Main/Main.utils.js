@@ -26,3 +26,8 @@ export const groupDates = list => list.reduce((acc, item) => {
  *  time of the same date
  */
 export const getStartTime = date => Date.parse(new Date(date * 1000).toDateString());
+
+/**
+ *  This function takes temperature in F and converts it to C
+ */
+export const convertTemperature = (temp, scale) => (scale === 'celsius' ? (temp - 273.15) : ((temp - 273.15) * (9 / 5) + 32)).toFixed(2);

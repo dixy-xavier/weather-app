@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Button from './components/Button/Button';
-import Cards from './components/Cards/Cards';
+import React, { Fragment, useEffect, useState } from 'react';
+import CardsContainer from './components/CardsContainer/CardsContainer';
 import GraphContainer from './components/GraphContainer/GraphContainer';
+import Loader from './components/Loader/Loader';
 import RadioButtons from './components/RadioButtons/RadioButtons';
 import { temperatureScales } from './Main.constants';
 import styles from './Main.css';
@@ -16,34 +16,49 @@ const Main = () => {
   const [location, setLocation] = useState({});
   const [dates, setDates] = useState({});
   const [pageNo, setPageNo] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [activeDate, setActiveDate] = useState(new Date().setHours(0, 0, 0, 0));
   useEffect(() => {
     request(URL).then(res => {
       setLocation(res.city);
       const groupedDates = groupDates(res.list);
       setDates(groupedDates);
-      setActiveDate(Object.keys(groupedDates)[0])
-    })
+      setActiveDate(Object.keys(groupedDates)[0]);
+      setLoading(false);
+    });
   }, []);
+  const activeScale = scales.find(item => item.active);
   return (
     <main className={styles.wrapper}>
-      <RadioButtons
-        list={scales}
-        classes={{ wrapper: styles.radioWrapper }}
-        onClick={key => setScales(scales.map(item => ({ ...item, active: item.key === key })))}
-      />
-      <Button onClick={() => setPageNo(pageNo === 0 ? pageNo : pageNo - 1)}>{'<'}</Button>
-      <Cards dates={Object.entries(dates).slice(pageNo * 3, pageNo * 3 + 3)} onClick={setActiveDate} activeDate={activeDate} />
-      <Button onClick={() => setPageNo(pageNo === dates.length - 1 ? pageNo : pageNo + 1)}>{'>'}</Button>
-      <GraphContainer
-        data={dates[activeDate]}
-        labelDetails={{
-          label: 'Temperature',
-          name: 'main.temp',
-          xKey: 'dt_txt',
-          color: '#299928'
-        }}
-      />
+      {loading ? (
+        <Loader classes={{ wrapper: styles.loader }} />
+      ) : (
+        <Fragment>
+          <RadioButtons
+            list={scales}
+            classes={{ wrapper: styles.radioWrapper }}
+            onClick={key => setScales(scales.map(item => ({ ...item, active: item.key === key })))}
+          />
+          <CardsContainer
+            pageNo={pageNo}
+            activeDate={activeDate}
+            dates={dates}
+            setActiveDate={setActiveDate}
+            setPageNo={setPageNo}
+            activeScale={activeScale.key}
+          />
+          <GraphContainer
+            data={dates[activeDate]}
+            labelDetails={{
+              label: 'Temperature',
+              name: 'main.temp',
+              xKey: 'dt_txt',
+              color: '#299928',
+            }}
+            activeScale={activeScale.key}
+          />
+        </Fragment>
+      )}
     </main>
   );
 };

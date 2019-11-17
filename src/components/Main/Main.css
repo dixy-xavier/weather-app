@@ -1,10 +1,17 @@
 .wrapper {
-  height: 100%;
+  height: calc(100% - 61px);
   margin: 40px;
+  position: relative;
 }
 
 .radioWrapper {
   overflow: hidden;
   border-radius: 5px;
   width: fit-content;
+}
+
+.loader {
+  height: initial;
+  width: initial;
+  position: absolute;
 }

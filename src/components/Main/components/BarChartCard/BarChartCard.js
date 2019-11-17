@@ -1,11 +1,13 @@
 import moment from 'moment';
 import React from 'react';
 import { Bar, BarChart, Cell, XAxis, YAxis } from 'recharts';
+import { convertTemperature } from '../../Main.utils';
 import styles from './BarChartCard.css';
 
 const CustomizedLabel = ({ x, y, fill, value, type }) => (
   <text x={x} y={y - 10} fontSize="14" fill={fill}>
-    {`${value} ${type}`}
+    {`${convertTemperature(value, type)} ${type === 'celsius' ? 'C' : 'F'}`}
+    <sup></sup>
   </text>
 );
 
@@ -15,7 +17,7 @@ const Label = ({ label }) => (
   </div>
 );
 
-const BarChartCard = ({ labelDetails, data }) => (
+const BarChartCard = ({ labelDetails, data, activeScale }) => (
   <div className={styles.cardWrapper}>
     <Label label={labelDetails.label} />
     <BarChart
@@ -30,7 +32,7 @@ const BarChartCard = ({ labelDetails, data }) => (
         dataKey={labelDetails.name}
         barSize={40}
         fontFamily="sans-serif"
-        label={<CustomizedLabel type={'F'}/>}
+        label={<CustomizedLabel type={activeScale}/>}
       >
         {!!data && data.map((entry, index) => (
           <Cell key={index} fill={labelDetails.color} />
