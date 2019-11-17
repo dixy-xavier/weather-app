@@ -1,3 +1,7 @@
 .wrapper {
-  display: flex;
+  border: 2px var(--border-color) solid;
+  border-radius: 3px;
+  width: 25%;
+  padding: 20px;
+  cursor: pointer;
 }
