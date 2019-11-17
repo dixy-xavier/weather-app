@@ -5,3 +5,7 @@
   padding: 20px;
   cursor: pointer;
 }
+
+.active {
+  border-color: var(--theme-color);
+}
