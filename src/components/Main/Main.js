@@ -64,7 +64,7 @@ const Main = () => {
             <GraphContainer
               data={dates[activeDate]}
               labelDetails={{
-                label: `Temperature on ${moment(Number(activeDate)).format('DD MMM YYYY')}`,
+                label: `Temperature on ${moment(Number(activeDate)).format('DD MMM YYYY')} (in ${activeScale.label})`,
                 name: 'main.temp',
                 xKey: 'dt_txt',
                 color: '#299928',

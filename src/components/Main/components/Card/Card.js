@@ -28,7 +28,11 @@ const Card = ({ date, reports, onClick, isActive, activeScale }) => {
     <div className={classNames(styles.wrapper, { [styles.active]: isActive })} onClick={() => onClick(date)}>
       <div className={styles.labelWrapper}>
         <div className={styles.date}>{moment(Number(date)).format('DD MMM YYYY')}</div>
-        <div className={styles.temperature}>{convertTemperature(avgValues.temperature, activeScale)}</div>
+        <div className={styles.temperature}>
+          {convertTemperature(avgValues.temperature, activeScale)}
+          <span>&#730;</span>
+          {activeScale === 'celsius' ? 'C' : 'F'}
+        </div>
       </div>
       <div className={styles.labelWrapper}>
         <LabelValue label="Humidity" value={`${avgValues.humidity} %`} icon={<WiHumidity />} />

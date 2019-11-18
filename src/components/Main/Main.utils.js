@@ -34,4 +34,4 @@ export const getStartTime = date => Date.parse(new Date(date * 1000).toDateStrin
 /**
  *  This function takes temperature in F and converts it to C
  */
-export const convertTemperature = (temp, scale) => scale === 'celsius' ? `${(temp - 273.15).toFixed(2)} C` : `${((temp - 273.15) * (9 / 5) + 32).toFixed(2)} F`;
+export const convertTemperature = (temp, scale) => scale === 'celsius' ? (temp - 273.15).toFixed(2) : ((temp - 273.15) * (9 / 5) + 32).toFixed(2);

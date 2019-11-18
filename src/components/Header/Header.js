@@ -8,8 +8,8 @@ import styles from './Header.css';
 
 const Header = () => (
   <header className={styles.wrapper}>
-    <Image alt="Optile logo" className={styles.image} src="src/assets/images/optile-logo.png" />
     <h1 className={styles.header}>Weather App</h1>
+    <Image alt="Optile logo" className={styles.image} src="src/assets/images/optile-logo.png" />
   </header>
 );
 
