@@ -1,39 +1,37 @@
 import moment from 'moment';
 import React, { Fragment, useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import CardsContainer from './components/CardsContainer/CardsContainer';
 import GraphContainer from './components/GraphContainer/GraphContainer';
 import Loader from './components/Loader/Loader';
 import NoData from './components/NoData/NoData';
 import RadioButtons from './components/RadioButtons/RadioButtons';
+import { getWeatherForecast, leaveWeatherForecast } from './Main.actions';
 import { temperatureScales } from './Main.constants';
 import styles from './Main.css';
-import { groupDates, request, URL } from './Main.utils';
 
 /**
  * Main component with radio buttons and content
  * */
 
-const Main = () => {
+const Main = ({ dispatch, location, dates }) => {
   const [scales, setScales] = useState(temperatureScales);
-  const [location, setLocation] = useState({});
-  const [dates, setDates] = useState({});
   const [pageNo, setPageNo] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [activeDate, setActiveDate] = useState(new Date().setHours(0, 0, 0, 0));
   useEffect(() => {
-    request(URL).then(res => {
-      if (res.cod !== '200') {
-        setError(res.message);
-      } else {
-        setLocation(res.city);
-        const groupedDates = groupDates(res.list);
-        setDates(groupedDates);
-        setActiveDate(Object.keys(groupedDates)[0]);
-        setError('')
-      }
-      setLoading(false);
-    });
+    dispatch(getWeatherForecast({
+      successCb: date => {
+        setActiveDate(date);
+        setLoading(false);
+      },
+      errorCb: message => {
+        setError(message);
+        setLoading(false);
+      },
+    }));
+    return () => dispatch(leaveWeatherForecast());
   }, []);
   const activeScale = scales.find(item => item.active);
   return (
@@ -78,4 +76,11 @@ const Main = () => {
   );
 };
 
-export default Main;
+const mapStateToProps = state => {
+  return {
+    location: state.mainApp.location,
+    dates: state.mainApp.dates,
+  };
+};
+
+export default connect(mapStateToProps)(Main);

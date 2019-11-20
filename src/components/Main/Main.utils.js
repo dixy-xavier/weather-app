@@ -2,19 +2,18 @@
  *  This function takes url path and calls fetch service and
  *  returns a promise which will give the response object
  */
-export const request = async url => {
+export function* request(url) {
   try {
-    const response = await fetch(url);
-    return await response.json();
+    const response = yield fetch(url);
+    const responseJson = yield response.json();
+    if (response.status === 200) {
+      return responseJson;
+    }
+    return responseJson;
   } catch (err) {
     throw new Error(err);
   }
-};
-
-/**
- *  url to fetch weather forecasts of the provided location
- */
-export const URL = 'http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57';
+}
 
 /**
  *  This function takes list of weather forecast and
