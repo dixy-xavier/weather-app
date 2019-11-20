@@ -1,10 +1,10 @@
 import React from 'react';
-import { FaArrowLeft, FaArrowRight} from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
 import Cards from '../Cards/Cards';
 import styles from './CardsContainer.css';
 
-const CardsContainer = ({ setPageNo, pageNo, dates, setActiveDate, activeDate, activeScale }) => {
+const CardsContainer = ({ setPageNo, pageNo, dates = {}, setActiveDate, activeDate, activeScale }) => {
   const isFirstPage = pageNo === 0;
   const data = Object.entries(dates);
   const isLastPage = pageNo * 3 + 3 >= data.length;

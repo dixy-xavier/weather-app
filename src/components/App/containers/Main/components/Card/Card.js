@@ -6,7 +6,7 @@ import { convertTemperature } from '../../Main.utils';
 import LabelValue from '../LabelValue/LabelValue';
 import styles from './Card.css';
 
-const Card = ({ date, reports, onClick, isActive, activeScale }) => {
+const Card = ({ date, reports = [], onClick, isActive, activeScale }) => {
   const count = reports.length;
   const avgValues = reports.reduce((acc, report, index) => {
     const data = {
