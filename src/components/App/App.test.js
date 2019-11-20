@@ -16,8 +16,8 @@ describe('App component tests', () => {
     expect(container.find('MainHeader').length).toEqual(1);
   });
 
-  test('Should have Main component', () => {
-    expect(container.find('Main').length).toEqual(1);
+  test('Should have connected Main component', () => {
+    expect(container.find('Connect(Main)').length).toEqual(1);
   });
 
 });

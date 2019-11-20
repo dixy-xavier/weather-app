@@ -8,6 +8,10 @@ describe('MainHeader component tests', () => {
     expect(container.length).toEqual(1);
   });
 
+  test('Should have header element', () => {
+    expect(container.find('header').length).toEqual(1);
+  });
+
   test('Should have Header component', () => {
     expect(container.find('Header').length).toEqual(1);
   });

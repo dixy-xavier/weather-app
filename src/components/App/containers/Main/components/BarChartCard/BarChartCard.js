@@ -4,13 +4,13 @@ import { Bar, BarChart, Cell, XAxis, YAxis } from 'recharts';
 import { convertTemperature } from '../../Main.utils';
 import styles from './BarChartCard.css';
 
-const CustomizedLabel = ({ x, y, fill, value, type }) => (
+export const CustomizedLabel = ({ x, y, fill, value, type }) => (
   <text x={x} y={y - 10} fontSize="14" fill={fill}>
     {convertTemperature(value, type)}
   </text>
 );
 
-const Label = ({ label }) => (
+export const Label = ({ label }) => (
   <div className={styles.cardLabel}>
     {label}
   </div>
@@ -25,13 +25,16 @@ const BarChartCard = ({ labelDetails, data, activeScale }) => (
       data={data}
       margin={{ top: 25, right: 0, left: 0, bottom: 25 }}
     >
-      <XAxis dataKey={labelDetails.xKey} tickSize tickFormatter={label => moment(Date.parse(label)).format('hh:mm')} />
+      <XAxis
+        dataKey={labelDetails.xKey}
+        tickFormatter={label => moment(Date.parse(label)).format('hh:mm')}
+      />
       <YAxis hide />
       <Bar
         dataKey={labelDetails.name}
         barSize={40}
         fontFamily="sans-serif"
-        label={<CustomizedLabel type={activeScale}/>}
+        label={<CustomizedLabel type={activeScale} />}
       >
         {!!data && data.map((entry, index) => (
           <Cell key={index} fill={labelDetails.color} />

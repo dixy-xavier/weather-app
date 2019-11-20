@@ -15,7 +15,7 @@ import styles from './Main.css';
  * Main component with radio buttons and content
  * */
 
-const Main = ({ dispatch, location, dates }) => {
+export const Main = ({ dispatch, location, dates }) => {
   const [scales, setScales] = useState(temperatureScales);
   const [pageNo, setPageNo] = useState(0);
   const [loading, setLoading] = useState(true);
