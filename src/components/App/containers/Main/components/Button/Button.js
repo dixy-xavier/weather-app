@@ -7,7 +7,13 @@ import styles from './Button.css';
  * */
 
 const Button = ({ className, children, onClick, disabled }) => (
-  <button disabled={disabled} className={classNames(styles.button, className)} onClick={onClick}>{children}</button>
+  <button
+    disabled={disabled}
+    className={classNames(styles.button, className)}
+    onClick={onClick}
+  >
+    {children}
+  </button>
 );
 
 export default Button;

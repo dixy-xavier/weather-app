@@ -19,7 +19,7 @@ const Card = ({ date, reports, onClick, isActive, activeScale }) => {
         temperature: (data.temperature / count).toFixed(2),
         humidity: (data.humidity / count).toFixed(2),
         wind: (data.wind / count).toFixed(2),
-      }
+      };
     }
     return data;
   }, { temperature: 0, humidity: 0, wind: 0 });
