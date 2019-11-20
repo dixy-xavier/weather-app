@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import Cards from './Cards';
 
 describe('Cards component tests', () => {
@@ -8,8 +8,8 @@ describe('Cards component tests', () => {
       [
         '1574188200000',
         [
-          Object
-        ]
+          Object,
+        ],
       ],
       [
         '1574274600000',
@@ -21,8 +21,8 @@ describe('Cards component tests', () => {
           Object,
           Object,
           Object,
-          Object
-        ]
+          Object,
+        ],
       ],
       [
         '1574361000000',
@@ -34,10 +34,10 @@ describe('Cards component tests', () => {
           Object,
           Object,
           Object,
-          Object
-        ]
-      ]
-    ]
+          Object,
+        ],
+      ],
+    ],
   };
   const container = shallow(<Cards {...minProps} />);
   test('Should render without crashing', () => {

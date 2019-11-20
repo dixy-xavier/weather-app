@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import RadioButtons from './RadioButtons';
 
 describe('RadioButtons component tests', () => {
@@ -15,7 +15,7 @@ describe('RadioButtons component tests', () => {
         label: 'Fahrenheit',
         active: true,
       },
-    ]
+    ],
   };
   const container = shallow(<RadioButtons {...minProps} />);
   test('Should render without crashing', () => {

@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import BarChartCard, { CustomizedLabel, Label } from './BarChartCard';
 
 describe('BarChartCard component tests', () => {
@@ -8,13 +8,13 @@ describe('BarChartCard component tests', () => {
       label: 'Temperature on 20 Nov 2019 (in Fahrenheit)',
       name: 'main.temp',
       xKey: 'dt_txt',
-      color: '#299928'
+      color: '#299928',
     },
     data: [
       {},
-      {}
+      {},
     ],
-    activeScale: 'fahrenheit'
+    activeScale: 'fahrenheit',
   };
   const container = shallow(<BarChartCard {...minProps} />);
   test('Should render without crashing', () => {

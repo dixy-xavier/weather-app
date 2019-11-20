@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import NoData from './NoData';
 
 describe('NoData component tests', () => {
