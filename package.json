@@ -1,4 +1,5 @@
 {
+  "homepage": "http://dixy-xavier.github.io/weather-app",
   "name": "weather-app",
   "version": "1.0.0",
   "description": "Weather app project setup",
@@ -6,7 +7,9 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "test": "jest --config=./jest.config.js"
+    "test": "jest --config=./jest.config.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/dixy-xavier/weather-app/issues"
   },
-  "homepage": "https://github.com/dixy-xavier/weather-app/blob/master/README.md",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-transform-runtime": "^7.6.2",
@@ -26,6 +28,7 @@
     "@babel/runtime": "^7.6.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "gh-pages": "^2.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "react-test-renderer": "^16.12.0",
