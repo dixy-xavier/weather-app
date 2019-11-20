@@ -46,7 +46,11 @@ export const Main = ({ dispatch, location, dates }) => {
           <NoData message={error} />
         ) : (
           <Fragment>
-            <Header title={`Weather Forecast of ${location.name}, ${location.country}`} headerType="h2" />
+            <Header
+              classes={{ header: styles.header }}
+              title={`Weather Forecast of ${location.name}, ${location.country}`}
+              headerType="h2"
+            />
             <RadioButtons
               list={scales}
               classes={{ wrapper: styles.radioWrapper }}

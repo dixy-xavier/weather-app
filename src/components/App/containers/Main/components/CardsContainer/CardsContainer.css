@@ -14,3 +14,13 @@
   width: 40px;
   justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .button {
+    transform: rotate(90deg);
+    margin-bottom: 10px;
+  }
+}
