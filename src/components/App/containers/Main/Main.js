@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import Header from '../../components/Header/Header';
 import CardsContainer from './components/CardsContainer/CardsContainer';
 import GraphContainer from './components/GraphContainer/GraphContainer';
 import Loader from './components/Loader/Loader';
@@ -20,6 +21,8 @@ const Main = ({ dispatch, location, dates }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [activeDate, setActiveDate] = useState(new Date().setHours(0, 0, 0, 0));
+  const activeScale = scales.find(item => item.active);
+
   useEffect(() => {
     dispatch(getWeatherForecast({
       successCb: date => {
@@ -33,7 +36,7 @@ const Main = ({ dispatch, location, dates }) => {
     }));
     return () => dispatch(leaveWeatherForecast());
   }, []);
-  const activeScale = scales.find(item => item.active);
+
   return (
     <main className={styles.wrapper}>
       {loading ? (
@@ -43,9 +46,7 @@ const Main = ({ dispatch, location, dates }) => {
           <NoData message={error} />
         ) : (
           <Fragment>
-            <h2>
-              Weather Forecast of {location.name}, {location.country}
-            </h2>
+            <Header title={`Weather Forecast of ${location.name}, ${location.country}`} headerType="h2" />
             <RadioButtons
               list={scales}
               classes={{ wrapper: styles.radioWrapper }}

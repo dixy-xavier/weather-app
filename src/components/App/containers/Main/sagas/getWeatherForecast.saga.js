@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { cancelSaga } from '../../../utils/utils';
+import { cancelSaga } from '../../../../../utils/utils';
 import { getWeatherForecastSuccess } from '../Main.actions';
 import { ACTION_GET_WEATHER_FORECAST, ACTION_LEAVE_WEATHER_FORECAST, URL } from '../Main.constants';
 import { groupDates, request } from '../Main.utils';

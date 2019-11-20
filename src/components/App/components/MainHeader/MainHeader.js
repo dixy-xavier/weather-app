@@ -1,16 +1,17 @@
 import React from 'react';
+import Header from '../Header/Header';
 import Image from './components/Image/Image';
-import styles from './Header.css';
+import styles from './MainHeader.css';
 
 /**
  * Header component with Optile logo and main heading
  * */
 
-const Header = () => (
+const MainHeader = () => (
   <header className={styles.wrapper}>
-    <h1 className={styles.header}>Weather App</h1>
+    <Header classes={{ header: styles.header }} title="Weather App" headerType="h1" />
     <Image alt="Optile logo" className={styles.image} src="src/assets/images/optile-logo.png" />
   </header>
 );
 
-export default Header;
+export default MainHeader;

@@ -1,4 +1,4 @@
-import MainSagas from './components/Main/Main.sagas';
+import MainSagas from './components/App/containers/Main/Main.sagas';
 
 export default [
   ...MainSagas,
