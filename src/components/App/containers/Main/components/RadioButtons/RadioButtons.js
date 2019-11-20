@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import Button from '../Button/Button';
-import styles from './RadioButton.css';
+import styles from './RadioButtons.css';
 
 /**
  * Radio buttons
