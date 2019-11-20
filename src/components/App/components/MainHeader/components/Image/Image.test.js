@@ -1,16 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow,  } from 'enzyme';
 import Image from './Image';
 
 describe('Image component tests', () => {
-  const minProps = { src: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Baobab_Adansonia_digitata.jpg' };
+  const minProps = { src: 'src/assets/images/optile-logo.png' };
   const container = shallow(<Image {...minProps} />);
   test('Should render without crashing', () => {
     expect(container.length).toEqual(1);
   });
 
   test('Should have img dom element', () => {
-    expect(container.find('img').first().length).toEqual(1);
+    expect(container.find('img').length).toEqual(1);
   });
 
 });
