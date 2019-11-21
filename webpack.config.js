@@ -38,7 +38,12 @@ module.exports = {
           sourceMap: true
         }
       }]
-    }],
+    }, {
+      test: /\.(md|ttf|txt|eot|ico|otf|svg|png|gif|woff2|woff|jpg|jpeg|webp|pdf|(2)?)(\?[a-z0-9]+)?$/,
+      use: [
+        { loader: 'file-loader' },
+      ],
+    },],
   },
   plugins: [
     new HWP(

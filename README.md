@@ -24,6 +24,9 @@ Open http://localhost:8080
 
 `npm test`
 
+## Demo
+Weather App - https://dixy-xavier.github.io/
+
 ## Explanation
 The weather app shows the weather forecast of Munich city. It shows 5-6 days in total and only maximum 3 date's data will be shown at a time. Rest could be retrieved by clicking the arrow icons.
 
