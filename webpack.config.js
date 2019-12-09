@@ -5,7 +5,8 @@ module.exports = {
   devtool: 'source-map',
   entry: path.join(__dirname, '/src/index.js'),
   output: {
-    filename: 'build.js',
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].chunk.js',
     path: path.join(__dirname, '/dist'),
   },
   watch: true,
