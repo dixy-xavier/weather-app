@@ -2,7 +2,7 @@ const path = require('path');
 const HWP = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: process.env.mode === 'development' && 'source-map',
   entry: path.join(__dirname, '/src/index.js'),
   output: {
     filename: '[name].[contenthash].js',
